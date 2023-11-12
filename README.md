@@ -10,3 +10,27 @@ Project checklist:
 5. Commands are made of only one word and no arguments will be passed to programs
 6. If an executable cannot be found, print an error message and display the prompt again.
 7. Handle Errors as well as the "end of file" condition
+
+Project Breakdown
+1. Command Parsing:
+When you type a command, the shell parses the input to understand the command and its arguments. It breaks down the input into tokens, separating them based on spaces or other delimiters.
+
+2. Path Resolution:
+If the command includes a path (like /usr/bin/ls), the shell directly executes the specified program. If not, the shell searches for the command in the directories listed in the system's PATH environment variable. It looks through each directory in order, trying to find an executable file with the specified name.
+
+3. Forking a Process:
+Once the shell determines the path of the executable, it creates a new process using the fork() system call. The child process is an exact copy of the shell process at this point.
+
+4. Loading the Program:
+The child process loads the executable program into its memory using the exec() family of system calls (such as execve() in Unix-like systems). The exec() system call replaces the child process's memory with the memory of the new program.
+
+5. Execution:
+The operating system's scheduler determines when and for how long the CPU executes the child process. The program runs, performing the specified task.
+
+6. Waiting for Completion:
+If the shell needs to wait for the command to complete (for example, in the case of interactive shells or when using the wait() system call), the parent shell process waits until the child process finishes executing.
+
+7. Returning Control:
+Once the command completes its execution, the shell regains control and may display the prompt again, allowing the user to enter another command.
+
+This process continues as long as the user interacts with the shell.
