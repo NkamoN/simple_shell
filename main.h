@@ -11,11 +11,38 @@
 #include <readline/history.h>
 
 #define clear() printf("\033[H\033[J")
-#define MAXCOM 1000
+#define MAXCOM 1024
 #define MAXLIST 100
+#define MAX_TOKENS 64
+#define TOKEN_DELIM "\t\n\r\a"
 
+/**
+ * Functions for main.c
+ */
 void welcome(void);
-int takeInput(char *str);
-void printDirectory(void);
+
+/**
+ * Functions for parser.c
+ */
+
+char **parse_input(char *input);
+
+/**
+ * Functions for executor.c
+ */
+
+int execute_command(char **args);
+
+/**
+ * Functions for builtin.c
+ */
+
+int handle_builtin(char **args);
+
+/**
+ * Functions for signals.c
+ */
+
+void setup_signal_handlers(void);
 
 #endif /** MAIN.h **/

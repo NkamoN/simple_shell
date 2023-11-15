@@ -15,64 +15,40 @@ printf("\n\n ************************************************************\n");
 }
 
 /**
- * takeInput - function to take input
- * @str: string
- * Return: 0 or 1
- */
-int takeInput(char *str)
-{
-char *buf;
-buf = readline("\n>>> ");
-if (strlen(buf) != 0)
-{
-add_history(buf);
-strcpy(str, buf);
-return (0);
-}
-else
-{
-return (1);
-}
-}
-
-/**
- * printDirectory - function to print new shell line
- */
-void printDirectory(void)
-{
-char cwd[1024];
-getcwd(cwd, sizeof(cwd));
-printf("\nDir: %s, cwd");
-}
-
-/**
  * main - the main funtion
  * Return: all input
  */
 int main(void)
 {
-char inputString[MAXCOM], *parsedArgs[MAXLIST];
-char *parsedArgsPiped[MAXLIST];
-int execFlag = 0;
+char input[MAXCOM];
+char **args;
+int i;
 
-welcome();
+setup_signal_handlers();
 
 while (1)
 {
-printDirectory();
-if (takeInput(inputString))
+welcome();
+fgets(input, sizeof(input), stdin);
+
+if (input[strlen(input) - 1] == '\n')
 {
-continue;
+input[strlen(input) - 1] = '\0';
 }
-execFlag = processString(inputString, parsedArgs, parsedArgsPiped);
-if (execFlag == 1)
+
+args = parse_input(input);
+if (args[0] != NULL)
 {
-execArgs(parsedArgs);
-}
-if (execFlag == 2)
+if (handle_builtin(args) == 0)
 {
-execArgsPiped(parsedArgs, parsedArgsPiped);
+execute_command(args);
 }
+}
+for (i = 0; args[i] != NULL; i++)
+{
+free(args[i]);
+}
+free(args);
 }
 return (0);
 }
