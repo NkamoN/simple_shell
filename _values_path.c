@@ -1,8 +1,7 @@
 #include "main.h"
-
 /**
-* _values_path - Function
-* @arg: input.
+* _values_path -Function separates the path in new strings.
+* @arg: command input of user.
 * @env: environment.
 * Return: a pointer to strings.
 */
@@ -28,8 +27,8 @@ free(path_rela);
 return (-1);
 }
 path_absol = _strcpy(path_absol, token);
-_strcat(path_absol, "/");
-_strcat(path_absol, *arg);
+strcat(path_absol, "/");
+strcat(path_absol, *arg);
 if (stat(path_absol, &stat_lineptr) == 0)
 {
 *arg = path_absol;
