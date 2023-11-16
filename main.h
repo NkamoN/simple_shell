@@ -17,9 +17,6 @@
 #define MAXLIST 100
 #define MAX_TOKENS 64
 #define TOKEN_DELIM "\t\n\r\a"
-
-int _putchar(char c);
-
 #define MAX_LINE 80
 #define MAX_ARGS 100
 
@@ -27,6 +24,7 @@ int _putchar(char c);
  * Functions for main.c
  */
 void welcome(void);
+int _putchar(char c);
 int _printf(const char *format, ...);
 void print_unknown_specifier(char specifier, size_t *count);
 void print_null_or_str(char *s, size_t *count);
@@ -45,7 +43,7 @@ void handle_char(char c, size_t *count);
 void handle_int(unsigned int num, size_t *count);
 
 /**
- * Functions for main shell
+ * extra functions in
  */
 void handle_command_with_args(char **args, int num_args);
 void execCommand(char *line, char **av);

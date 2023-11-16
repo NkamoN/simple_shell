@@ -36,11 +36,11 @@ else
 {
 while (1)
 {
-welcome();
-
 char *line;
 size_t size;
 ssize_t read;
+
+welcome();
 
 _printf("#Shell$ ");
 read = getline(&line, &size, stdin);
