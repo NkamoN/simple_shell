@@ -1,5 +1,7 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef MAIN_HEADER
+#define MAIN_HEADER
+#define _GNU_SOURCE
+
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -7,46 +9,27 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
-#include <readline/readline.h>
-#include <readline/history.h>
+#include <sys/stat.h>
 #include <errno.h>
-#include <stdarg.h>
 
-#define clear() printf("\033[H\033[J")
-#define MAXCOM 1024
-#define MAXLIST 100
-#define MAX_TOKENS 64
-#define TOKEN_DELIM "\t\n\r\a"
-#define MAX_LINE 80
-#define MAX_ARGS 100
 
-/**
- * Functions for main.c
- */
-void welcome(void);
-int _putchar(char c);
-int _printf(const char *format, ...);
-void print_unknown_specifier(char specifier, size_t *count);
-void print_null_or_str(char *s, size_t *count);
-void print_unsigned(unsigned int num, size_t *count);
-void print_octal(unsigned int num, size_t *count);
-void print_hex(unsigned int num, int uppercase, size_t *count);
-void print_binary(unsigned int num, size_t *count);
-void print_integer(int num, size_t *count);
-void handle_format_specifier(char specifier, va_list args, size_t *count);
-void handle_hex(unsigned int num, int is_upper, size_t *count);
-void handle_octal(unsigned int num, size_t *count);
-void handle_unsign(unsigned int num, size_t *count);
-void handle_bin(unsigned int num, size_t *count);
-void handle_str(char *s, size_t *count);
-void handle_char(char c, size_t *count);
-void handle_int(unsigned int num, size_t *count);
+int putchar(char c);
+char *get_line_command(void);
+extern char **environ;
+int _strcmp(char *s1, char *s2);
+size_t _strncmp(char *s1, char *s2, size_t n);
+int _strlen(char *s);
+char *_strcpy(char *dest, char *src);
+char *_strcat(char *dest, char *src);
+char *_get_path(char **env);
+int _values_path(char **arg, char **env);
 
-/**
- * extra functions in
- */
-void handle_command_with_args(char **args, int num_args);
-void execCommand(char *line, char **av);
-char **split_line(char *line);
 
-#endif /** MAIN.h **/
+void _getenv(char **env);
+char **_get_token(char *lineptr);
+void _exit_command(char **args, char *lineptr, int _exit);
+int _fork_fun(char **arg, char **av, char **env,
+char *lineptr, int np, int c);
+char *_strtok(char *str, const char *delim);
+#endif 
+
