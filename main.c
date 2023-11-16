@@ -34,13 +34,12 @@ _printf("%s\n", av[i]);
 }
 else
 {
+welcome();
 while (1)
 {
 char *line;
 size_t size;
 ssize_t read;
-
-welcome();
 
 _printf("#Shell$ ");
 read = getline(&line, &size, stdin);

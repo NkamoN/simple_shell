@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "main.h"
 
 /**
@@ -77,7 +78,7 @@ void print_integer(int num, size_t *count)
 }
 
 /**
- * print_null_or_str - functin
+ * print_null_or_str - function
  * @s: characters
  * @count: count
  */
@@ -102,7 +103,7 @@ void print_null_or_str(char *s, size_t *count)
 /**
  * print_unknown_specifier - fucntion
  * @specifier: unknown specifier
- * @count: character count
+ * @count: count
  */
 void print_unknown_specifier(char specifier, size_t *count)
 {
@@ -112,9 +113,9 @@ void print_unknown_specifier(char specifier, size_t *count)
 }
 
 /**
- * _printf - custom printf
- * @format: a charcter string
- * Return: return type is a string
+ * _printf - printf function
+ * @format: charcter string
+ * Return: string
  */
 int _printf(const char *format, ...)
 {
