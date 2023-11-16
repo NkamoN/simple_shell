@@ -37,11 +37,12 @@ else
 while (1)
 {
 welcome();
-char *line = NULL;
+
+char *line;
 size_t size;
 ssize_t read;
 
-_printf("#cisfun$ ");
+_printf("#Shell$ ");
 read = getline(&line, &size, stdin);
 if (read == -1)
 {
