@@ -1,5 +1,5 @@
 #include "main.h"
-<<<<<<< HEAD
+
 /**
  * _get_path -Functions gets variable PATH.
  * @env: enviroment
@@ -26,7 +26,7 @@ return (NULL);
 for (var = 5, count = 0; env[index][var]; var++, count++)
 path[count] = env[index][var];
 
-=======
+
 
 /**
  * _get_path - function to get PATH.
@@ -51,7 +51,7 @@ if (path == NULL)
 return (NULL);
 for (var = 5, count = 0; env[i][var]; var++, count++)
 path[count] = env[i][var];
->>>>>>> 68e8cf898335383f31220d817c8bd0b0d62504bd
+
 path[count] = '\0';
 return (path);
 }
