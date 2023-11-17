@@ -1,7 +1,28 @@
 #include "main.h"
+<<<<<<< HEAD
 /**
  * main - Function handles main arguments 
  * @ac:count of arguments
+=======
+
+/**
+ * welcome - function that loads on running shell program
+ */
+void welcome(void)
+{
+clear();
+printf("\n\n **************************************************************");
+printf("\n\n\t ***************Shell Program*****************");
+printf("\n\n\t\t\t Designed by:");
+printf("\n\n\t\t Nana Ramaboea & Josh Myles");
+printf("\n\n\t\t\t ALX PROGRAM");
+printf("\n\n ************************************************************\n");
+}
+
+/**
+ * main - function handles main arguments 
+ * @ac: count of arguments
+>>>>>>> 68e8cf898335383f31220d817c8bd0b0d62504bd
  * @av: arguments
  * @env: environment
  * Return: _exit = 0.
@@ -12,6 +33,10 @@ char *getcommand = NULL, **user_command = NULL;
 int pathValue = 0, _exit = 0, n = 0;
 (void)ac;
 
+<<<<<<< HEAD
+=======
+welcome();
+>>>>>>> 68e8cf898335383f31220d817c8bd0b0d62504bd
 while (1)
 {
 getcommand = _getline_command();
@@ -47,4 +72,7 @@ free(getcommand);
 }
 return (_exit);
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 68e8cf898335383f31220d817c8bd0b0d62504bd
