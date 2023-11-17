@@ -1,16 +1,16 @@
 #include "main.h"
 
-char *_strchr(const char *s, int c);
 size_t _strspn(const char *s1, const char *s2);
+char *_strchr(const char *s, int c);
 size_t _strcspn(const char *s1, const char *s2);
 
 /**
-* _strtok - function.
-* Delimiter - characters at the beginning, end
-*of str are skipped. On each subsequent call delim may change.
+* _strtok - function 2 break string s1 into tokens & null-terminates them.
+* delimiter - characters at beginning & end
+* of str are skipped. On each subsequent call delim can change.
 * @str: string 2 tokenize
-* @delim: string character delimit str.
-* Return: the first/next token if possible, a null-pointer otherwise.
+* @delim: string character that delimit str.
+* Return: the first/next token where possible else null-pointer.
 **/
 char *_strtok(char *str, const char *delim)
 {
@@ -28,12 +28,12 @@ return (str);
 }
 
 /**
-* _strcspn - function
-* pointed to by s1 which consists entirely of characters not from the
-* string pointed to by s2.
+* _strcspn - function to compute length of max initial segment of string
+* pointed 2 by s1 which consists entirely of characters not from the
+* string pointed 2 by s2.
 * @s1: string to check
-* @s2: string useful to compare
-* Return: the length of the segment.
+* @s2: string to compare
+* Return: length of segment.
 **/
 size_t _strcspn(const char *s1, const char *s2)
 {
@@ -48,12 +48,12 @@ return (ret);
 }
 
 /**
-* _strspn - function
-* pointed to by s1 which consists entirely of characters from the string
-* pointed to by s2.
-* @s1: string to compute the length
+* _strspn - function computes length of maximum initial segment of string
+* pointed 2 by s1 which consists entirely of characters from string
+* pointed 2 by s2.
+* @s1: string to compute length
 * @s2: string delimit
-* Return: the length of the segment.
+* Return: length of segment.
 **/
 size_t _strspn(const char *s1, const char *s2)
 {
@@ -64,13 +64,13 @@ return (ret);
 }
 
 /**
-* _strchr - function
-* string pointed to by s. The terminating null character is considered to be
-* part of the string.
+* _strchr - function 2 locate first occurrence of c (converted to char) in
+* string pointed by s. The terminating null character is considered to be
+* part of @s.
 * @s: string
 * @c: character
-* Return: a pointer to the located character, or a null pointer
-* if the character does not occur in the string.
+* Return: pointer to located character, or null pointer
+* if character does not occur in string.
 **/
 char *_strchr(const char *s, int c)
 {
